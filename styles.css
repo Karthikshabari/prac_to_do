@@ -1,0 +1,254 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  /* App Container */
+  .todo-app {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4a90e2;
+    text-shadow: 0px 2px 5px rgba(74, 144, 226, 0.5);
+    margin-bottom: 15px;
+  }
+  
+  header input[type="text"],
+  header input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  header input[type="text"]:focus,
+  header input[type="date"]:focus {
+    border-color: #6fcf97;
+    box-shadow: 0 0 10px rgba(111, 207, 151, 0.5);
+  }
+  
+  header button {
+    padding: 10px 20px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  header button:hover {
+    background: #357ab7;
+    box-shadow: 0px 5px 15px rgba(53, 122, 183, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  /* Filters */
+  .filters {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  
+  .filter-btn {
+    padding: 10px 15px;
+    border: none;
+    background: #e4f0f6;
+    color: #4a90e2;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn.active {
+    background: #4a90e2;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .filter-btn:hover {
+    background: #6fcf97;
+    color: white;
+  }
+  
+  /* Search Bar */
+  #searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  #searchInput:focus {
+    border-color: #6fcf97;
+    box-shadow: 0 0 10px rgba(111, 207, 151, 0.5);
+  }
+  
+  /* Task List */
+  #taskList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #4a90e2 #e4f0f6;
+  }
+  
+  #taskList::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #taskList::-webkit-scrollbar-thumb {
+    background: #4a90e2;
+    border-radius: 10px;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: slideIn 0.5s ease;
+    transition: background 0.3s;
+  }
+  
+  .task-item.completed {
+    text-decoration: line-through;
+    background: #d4edda;
+    border-left: 5px solid #28a745;
+  }
+  
+  .task-item.urgent {
+    border-left: 5px solid #e74c3c;
+    background: #ffe6e6;
+  }
+  
+  .task-item span {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .task-item .deadline {
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .task-item button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .task-item .edit-btn {
+    background: #f39c12;
+    color: white;
+  }
+  
+  .task-item .delete-btn {
+    background: #e74c3c;
+    color: white;
+  }
+  
+  .task-item .clear-btn {
+    background: #3498db;
+    color: white;
+  }
+  
+  .task-item button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  
+  /* Clear All Button */
+  .clear-all {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .clear-all:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
